@@ -7,10 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import controller.Action;
+import controller.ActionForward;
 import model.dao.StudentDAO;
-import model.dto.Student;
-import Controller.Action;
-import Controller.ActionForward;
 
 public class GetClassName implements Action {
 

@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Controller.Article.GetClassName;
-import Controller.Article.AddStudent;
-import Controller.Article.EditStudent;
-import Controller.Article.ListStudent;
+import controller.student.AddStudent;
+import controller.student.EditStudent;
+import controller.student.GetClassName;
+import controller.student.ListStudent;
 
 
 

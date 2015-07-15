@@ -3,10 +3,10 @@ package controller.student;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.Action;
+import controller.ActionForward;
 import model.dao.StudentDAO;
 import model.dto.Student;
-import Controller.Action;
-import Controller.ActionForward;
 
 public class AddStudent implements Action {
 
