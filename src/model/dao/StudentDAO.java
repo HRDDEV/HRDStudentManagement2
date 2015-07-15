@@ -12,47 +12,16 @@ import javax.sql.DataSource;
 import model.dto.Student;
 
 public class StudentDAO {
-	Connection cn;
+	Connection conn;
 
 	public StudentDAO() throws Exception {
 		InitialContext init = new InitialContext();
-		DataSource ds = (DataSource) init.lookup("java:comp/env/myajaxdb");
-		this.cn = ds.getConnection();
-	}
-
-	public boolean insert(Student stu) throws SQLException {
-		System.out.println(stu.getGender());
-		int gender = (stu.getGender() == "Male") ? 1 : 0;
-		String sql = "INSERT INTO hrd_students (stu_id,stu_name,stu_gender,stu_university,stu_class,stu_status)"
-				+ "VALUES (?,?,?,?,?,?)";
-		PreparedStatement ps = cn.prepareStatement(sql);
-		ps.setString(1, "007");
-		ps.setString(2, stu.getName());
-		ps.setInt(3, gender);
-		ps.setString(4, stu.getUniversity());
-		ps.setString(5, stu.getClassName());
-		ps.setInt(6, 1);
-		int i = ps.executeUpdate();
-		if (i > 0) {
-			if (ps != null)
-				try {
-					ps.close();
-				} catch (SQLException e) {
-					throw e;
-				}
-			if (cn != null)
-				try {
-					cn.close();
-				} catch (SQLException e) {
-					throw e;
-				}
-			return true;
-		}
-		return false;
+		DataSource ds = (DataSource) init.lookup("java:comp/env/hrd_student");
+		this.conn = ds.getConnection();
 	}
 
 	public boolean update(String id, int status) throws SQLException {
-		PreparedStatement ps = cn.prepareStatement("UPDATE hrd_students SET stu_status=? WHERE stu_id=?");
+		PreparedStatement ps = conn.prepareStatement("UPDATE hrd_students SET stu_status=? WHERE stu_id=?");
 		ps.setInt(1, status);
 		ps.setString(2, id);
 		int i = ps.executeUpdate();
@@ -63,9 +32,9 @@ public class StudentDAO {
 				} catch (SQLException e) {
 					throw e;
 				}
-			if (cn != null)
+			if (conn != null)
 				try {
-					cn.close();
+					conn.close();
 				} catch (SQLException e) {
 					throw e;
 				}
@@ -76,7 +45,7 @@ public class StudentDAO {
 
 	public ArrayList<Student> list(String stuName, String className, String status) throws SQLException {
 		String sql = "SELECT * FROM hrd_students WHERE stu_name LIKE ? AND stu_class LIKE ? AND stu_status LIKE ?";
-		PreparedStatement ps = cn.prepareStatement(sql);
+		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, "%" + stuName + "%");
 		ps.setString(2, "%" + className + "%");
 		ps.setString(3, "%" + status + "%");
@@ -107,9 +76,9 @@ public class StudentDAO {
 				} catch (SQLException e) {
 					throw e;
 				}
-			if (cn != null)
+			if (conn != null)
 				try {
-					cn.close();
+					conn.close();
 				} catch (SQLException e) {
 					throw e;
 				}
@@ -118,7 +87,7 @@ public class StudentDAO {
 
 	public ArrayList<String> classList() throws SQLException {
 		String sql = "SELECT DISTINCT stu_class FROM hrd_students";
-		PreparedStatement ps = cn.prepareStatement(sql);
+		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		ArrayList<String> list = new ArrayList<String>();
 		try {
@@ -139,12 +108,43 @@ public class StudentDAO {
 				} catch (SQLException e) {
 					throw e;
 				}
-			if (cn != null)
+			if (conn != null)
 				try {
-					cn.close();
+					conn.close();
 				} catch (SQLException e) {
 					throw e;
 				}
 		}
+	}
+	
+	public boolean insert(Student stu) throws SQLException {
+		System.out.println(stu.getGender());
+		int gender = (stu.getGender() == "Male") ? 1 : 0;
+		String sql = "INSERT INTO hrd_students (stu_id,stu_name,stu_gender,stu_university,stu_class,stu_status)"
+				+ "VALUES (?,?,?,?,?,?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, "007");
+		ps.setString(2, stu.getName());
+		ps.setInt(3, gender);
+		ps.setString(4, stu.getUniversity());
+		ps.setString(5, stu.getClassName());
+		ps.setInt(6, 1);
+		int i = ps.executeUpdate();
+		if (i > 0) {
+			if (ps != null)
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					throw e;
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					throw e;
+				}
+			return true;
+		}
+		return false;
 	}
 }

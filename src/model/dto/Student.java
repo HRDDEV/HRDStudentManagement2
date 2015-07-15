@@ -1,3 +1,5 @@
+/* Model DTO : use for private fields, getter, setter and constructor */
+
 package model.dto;
 
 public class Student {
