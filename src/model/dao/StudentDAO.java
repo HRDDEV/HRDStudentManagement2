@@ -125,4 +125,27 @@ public class StudentDAO  {
 			if(cn!=null)try{cn.close();}catch(SQLException e){throw e;}
 		}
 	}
+
+	public boolean update(String id, int status) throws SQLException {
+		PreparedStatement ps = cn.prepareStatement("UPDATE hrd_students SET stu_status=? WHERE stu_id=?");
+		ps.setInt(1, status);
+		ps.setString(2, id);
+		int i = ps.executeUpdate();
+		if (i > 0) {
+			if (ps != null)
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					throw e;
+				}
+			if (cn != null)
+				try {
+					cn.close();
+				} catch (SQLException e) {
+					throw e;
+				}
+			return true;
+		}
+		return false;
+	}
 }

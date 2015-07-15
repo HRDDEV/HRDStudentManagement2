@@ -17,7 +17,7 @@ import controller.student.Validation;
 
 
 
-@WebServlet("*.hrd")
+@WebServlet("*.etv")
 public class Front_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,22 +41,22 @@ public class Front_Controller extends HttpServlet {
 		Action action = null;
 
 		switch(command){
-			case "/liststudent.hrd":
+			case "/liststudent.etv":
 				action = new ListStudent();
 				break;
-			case "/addstudent.hrd":
+			case "/addstudent.etv":
 				action = new AddStudent();
 				break;
-			case "/deletestudent.hrd":
+			case "/deletestudent.etv":
 				action = new DeleteStudent();
 				break;
-			case "/updatestudent.hrd":
+			case "/updatestudent.etv":
 				action = new UpdateStudent();
 				break;
-			case "/classlist.hrd":
+			case "/classlist.etv":
 				action = new GetClassName();
 				break;
-			case "/validation.hrd":
+			case "/validation.etv":
 				action = new Validation();
 				break;
 			default :

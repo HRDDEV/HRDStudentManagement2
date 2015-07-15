@@ -20,7 +20,7 @@ $(document).ready(function () {
     
     function list() {
         $.ajax({
-            url: 'liststudent.hrd',
+            url: 'liststudent.etv',
             method: 'POST',
             data: {
                 stuName: keyword.val(),
@@ -143,7 +143,7 @@ $(document).ready(function () {
     /* Add New Student to DB */
     function addNewStudent(){
         $.ajax({
-            url:'addstudent.hrd',
+            url:'addstudent.etv',
             method:'POST',
             data:{
                 id: txtId.val(),
@@ -166,7 +166,7 @@ $(document).ready(function () {
     /* Delete Student */
     function deleteStudent(id){
         $.ajax({
-            url:'deletestudent.hrd' ,
+            url:'deletestudent.etv' ,
             method:'POST',
             data:{
                 id:id,
@@ -182,7 +182,7 @@ $(document).ready(function () {
     /* Update Student Info */
     function updateStudent(td){
         $.ajax({
-            url: 'updatestudent.hrd',
+            url: 'updatestudent.etv',
             method: 'POST',
             data: {
                 id: txtId.val(),
@@ -213,7 +213,7 @@ $(document).ready(function () {
     /* Validate ID */
     function validateDuplicateId(id){
         $.ajax({
-            url:'validation.hrd',
+            url:'validation.etv',
             data:{
                 id:id
             },
