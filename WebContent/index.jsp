@@ -27,7 +27,7 @@
 
 						function list() {
 							$.ajax({
-								url : 'liststudent.hrd',
+								url : 'liststudent.etv',
 								method : 'POST',
 								data : {
 									stuName : keyword,
@@ -81,7 +81,7 @@
 							var combobox = $('#class-name');
 							$
 									.ajax({
-										url : 'classlist.hrd',
+										url : 'classlist.etv',
 										method : 'POST',
 										success : function(data) {
 											var str = "";
@@ -112,7 +112,7 @@
 							var status = (src != "active.png") ? 1 : 0;
 							var id = img.attr('id');
 							$.ajax({
-								url : 'updatestudent.hrd',
+								url : 'updatestudent.etv',
 								data : {
 									id : id,
 									status : status
