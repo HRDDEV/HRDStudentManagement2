@@ -1,171 +1,125 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cheth Sovichea - Web Homework #21</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<%@ include file="header.jsp" %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Staff and Student Management</h2>
+            </div>
+        </div>
+        <!-- Control -->
+        <div class="row">
+            <!-- Search Text -->
+            <div class="col-md-4">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="txt-search">Search By Name : </label>
+                        <input type="text" name="txt-search" id="txt-search" class="form-control" placeholder="Type here...">
+                    </div>
+                </form>
+            </div>
+            <!-- List of Class Name -->
+            <div class="col-md-3">
+                <select class="form-control" name="class-name" id="class-name">
+                    <option value="">All Class</option>
+                    <option value="BTB">Battam Bang</option>
+                    <option value="KPS">Kompong Som</option>
+                    <option value="PP">Phnom Penh</option>
+                    <option value="SR">Siem Reap</option>
+                </select>
+            </div>
+            <!-- Button Add to Show Modal -->
+            <div class="col-md-2">
+                <button class="btn btn-success pull-right" data-toggle="modal" data-target="#bootstrapModal" id="add-modal">Add New Student</button>
+            </div>
+        </div>
+        <!-- Table Student Information -->
+        <div class="row">
+            <div class="col-md-12 table-responsive" id="student-info">
+                
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="bootstrapModal" tabindex="-1" role="dialog" aria-labelledby="bootstrapModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Student Registration</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 add">
+                                    <form class="form-horizontal">
+                                        <!-- ID -->
+                                        <div class="form-group" id="validate-id">
+                                            <label for="txt-id" class="col-sm-2 control-label">ID</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="txt-id" placeholder="Number Only" tabindex=1>
+                                                <span id="alert-id">* Can not empty!</span>
+                                            </div>
+                                        </div>
+                                        <!-- Name -->
+                                        <div class="form-group" id="validate-name">
+                                            <label for="txt-name" class="col-sm-2 control-label">Name</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="txt-name" placeholder="Full Name" tabindex=2>
+                                                <span id="alert-name">* Can not empty!</span>
+                                            </div>
+                                        </div>
+                                        <!-- Gender -->
+                                        <div class="form-group">
+                                            <label for="cbo-gender" class="col-sm-2 control-label">Gender</label>
+                                            <div class="col-sm-3">
+                                                <select name="cbo-gender" id="cbo-gender" class="form-control" tabindex=3>
+                                                    <option value="1">Male</option>
+                                                    <option value="0">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- University -->
+                                        <div class="form-group">
+                                            <label for="cbo-university" class="col-sm-2 control-label">University</label>
+                                            <div class="col-sm-3">
+                                                <select name="cbo-university" id="cbo-university" class="form-control" tabindex=4>
+                                                    <option value="AEU">AEU</option>
+                                                    <option value="BBU">BBU</option>
+                                                    <option value="Norton">Norton</option>
+                                                    <option value="NUM">NUM</option>
+                                                    <option value="RUPP">RUPP</option>
+                                                    <option value="SETEC">SETEC</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Class -->
+                                        <div class="form-group">
+                                            <label for="cbo-class" class="col-sm-2 control-label">Class</label>
+                                            <div class="col-sm-3">
+                                                <select name="cbo-class" id="cbo-class" class="form-control" tabindex=5>
+                                                    <option value="PP">Phnom Penh</option>
+                                                    <option value="BTB">Battam Bang</option>
+                                                    <option value="KPS">Kompong Som</option>
+                                                    <option value="SR">Siem Reap</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="button" class="btn btn-info" id="add-new-student" tabindex=6>Add</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<script>
-	$(document)
-			.ready(
-					function() {
-
-						var keyword = $('#search-text').val(), className = $(
-								'#class-name').val(), status = $('#status')
-								.val();
-						var studentInfo = $('div#student-info');
-
-						getClassList();
-
-						list();
-
-						function list() {
-							$.ajax({
-								url : 'liststudent.etv',
-								method : 'POST',
-								data : {
-									stuName : keyword,
-									className : className,
-									status : status
-								},
-								success : function(data) {
-									studentInfo.html(listDetail(data));
-									$('img').click(function() {
-										changeStatus($(this));
-
-									});
-								}
-							});
-						}
-						function listDetail(data) {
-							var str = "";
-							str += '<table class="table-bordered">' + '<tr>'
-									+ '<th>ID</th>' + '<th>Name</th>'
-									+ '<th>Gender</th>' + '<th>University</th>'
-									+ '<th>Class</th>' + '<th>Status</th>'
-									+ '</tr>';
-							if (data.length > 0) {
-								for (var i = 0; i < data.length; i++) {
-									var statusImage = (data[i].status == 1) ? "active.png"
-											: "drop.png";
-									var studentGender = (data[i].gender == 1) ? "Male"
-											: "Female";
-									str += '<tr>' + '<td>' + data[i].id
-											+ '</td>' + '<td>' + data[i].name
-											+ '</td>' + '<td>' + studentGender
-											+ '</td>' + '<td>'
-											+ data[i].className + '</td>'
-											+ '<td>' + data[i].university
-											+ '</td>' + '<td>'
-											+ '<img src="images/' + statusImage
-											+ '" id="' + data[i].id
-											+ '" width="10%">' + '</td>'
-											+ '</tr>';
-								}
-							} else {
-								str += '<tr>'
-										+ '<td class="text-center" colspan="6">'
-										+ '-- No Record --' + '</td>' + '</tr>';
-							}
-							str += '</table>';
-							return str;
-						}
-
-						function getClassList() {
-							var combobox = $('#class-name');
-							$
-									.ajax({
-										url : 'classlist.etv',
-										method : 'POST',
-										success : function(data) {
-											var str = "";
-											str += '<option value="">All Class</option>';
-											for (var i = 0; i < data.length; i++) {
-												str += '<option value="' + data[i] + '">'
-														+ data[i] + '</option>';
-											}
-											combobox.html(str);
-										}
-									});
-						}
-
-						$('#search-text').keyup(function() {
-							keyword = $('#search-text').val();
-							list();
-						});
-
-						$('#class-name, #status').change(function() {
-							className = $('#class-name').val();
-							status = $('#status').val();
-							list();
-						});
-
-						function changeStatus(img) {
-							var src = img.attr('src');
-							src = src.substr(src.lastIndexOf('/') + 1);
-							var status = (src != "active.png") ? 1 : 0;
-							var id = img.attr('id');
-							$.ajax({
-								url : 'updatestudent.etv',
-								data : {
-									id : id,
-									status : status
-								},
-								success : function(data) {
-									src = (src == "active.png") ? "drop.png"
-											: "active.png";
-									img.attr('src', 'images/' + src);
-								}
-							});
-						}
-
-					});
-</script>
-<style>
-</style>
-</head>
-
-<body>
-
-	<div class="container">
-
-		<div class="row">
-			<div class="col-md-12">
-				<h2>HRD Staff and Student Management</h2>
-			</div>
-			<div class="col-md-4">
-				<form class="form-inline">
-					<div class="form-group">
-						<label>Search by name : </label> <input type="text"
-							name="search-text" id="search-text" class="form-control"
-							placeholder="Search here..." />
-					</div>
-				</form>
-			</div>
-			<div class="col-md-4">
-				<select class="form-control" name="class-name" id="class-name">
-				</select>
-			</div>
-
-			<div class="col-md-4">
-				<select class="form-control" id="status" name="status">
-					<option value="">All Status</option>
-					<option value="1">Active</option>
-					<option value="0">Drop</option>
-				</select>
-			</div>
-
-			<!-- Display Student Info -->
-			<div class="col-md-12" id="student-info"></div>
-		</div>
-	</div>
-
-
-</body>
-</html>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<%@ include file="footer.jsp" %>

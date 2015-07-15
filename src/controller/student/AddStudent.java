@@ -13,17 +13,17 @@ public class AddStudent implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		
+		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String gender = request.getParameter("gender");
 		String university = request.getParameter("university");
 		String className = request.getParameter("className");
 		
 		Student stu = new Student();
+		stu.setId(id);
 		stu.setName(name);
-		System.out.println(gender);
 		stu.setGender(gender);
-		System.out.println(stu.getGender());
 		stu.setUniversity(university);
 		stu.setClassName(className);
 		
