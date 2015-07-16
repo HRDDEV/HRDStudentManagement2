@@ -86,7 +86,7 @@
                                                 <select name="cbo-university" id="cbo-university" class="form-control" tabindex=4>
                                                     <option value="AEU">AEU</option>
                                                     <option value="BBU">BBU</option>
-                                                    <option value="Norton">Norton</option>
+                                                    <option value="Norton">NU</option>
                                                     <option value="NUM">NUM</option>
                                                     <option value="RUPP">RUPP</option>
                                                     <option value="SETEC">SETEC</option>

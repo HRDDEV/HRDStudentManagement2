@@ -24,7 +24,7 @@ public class StudentDAO {
 		String sql = "INSERT INTO hrd_students (stu_id,stu_name,stu_gender,stu_university,stu_class,stu_status)"
 				+ "VALUES (?,?,?,?,?,1)";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setString(1, "131N" + stu.getId());
+		ps.setString(1, stu.getId());
 		ps.setString(2, stu.getName());
 		ps.setInt(3, Integer.parseInt(stu.getGender()));
 		ps.setString(4, stu.getUniversity());
