@@ -8,7 +8,7 @@ import controller.ActionForward;
 import model.dao.StudentDAO;
 import model.dto.Student;
 
-public class AddStudent implements Action {
+public class StudentInsert implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
@@ -29,10 +29,10 @@ public class AddStudent implements Action {
 		
 		response.setContentType("text/plain");
 		if(new StudentDAO().insert(stu)){
-			System.out.println("Insert SUCCESS");
+			System.out.println("Successful Add");
 			response.getWriter().write("success");
 		}else{
-			System.err.println("Insert FAIL");
+			System.err.println("Fail to Add");
 			response.getWriter().write("fail");
 		}
 		return null;

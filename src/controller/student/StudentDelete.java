@@ -7,7 +7,7 @@ import controller.Action;
 import controller.ActionForward;
 import model.dao.StudentDAO;
 
-public class Validation implements Action {
+public class StudentDelete implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
@@ -15,12 +15,12 @@ public class Validation implements Action {
 
 		String id = request.getParameter("id");
 		response.setContentType("text/plain");
-		if(new StudentDAO().validateId(id)){
-			System.out.println("Found");
-			response.getWriter().write("found");
+		if(new StudentDAO().delete(id)){
+			System.out.println("Delete SUCCESS");
+			response.getWriter().write("success");
 		}else{
-			System.err.println("Not Found");
-			response.getWriter().write("not found");
+			System.err.println("Delete FAIL");
+			response.getWriter().write("fail");
 		}
 		return null;
 	}

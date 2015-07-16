@@ -12,7 +12,7 @@ import controller.ActionForward;
 import model.dao.StudentDAO;
 import model.dto.Student;
 
-public class ListStudent implements Action {
+public class StudentList implements Action {
 
 	
 	public ActionForward execute(HttpServletRequest request,
