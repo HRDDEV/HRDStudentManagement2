@@ -1,54 +1,51 @@
-img:hover{
-    cursor: pointer;
+img:hover {
+	cursor: pointer;
 }
 
-img{
-    width: 30px;
-    height: 30px;
+img {
+	width: 30px;
+	height: 30px;
 }
 
-th,td{
-    text-align: center;
+th, td {
+	text-align: center;
 }
 
-h2{
-    text-align: center;
-    margin: 50px 0px;
+h2 {
+	text-align: center;
+	margin: 50px 0px;
 }
 
-input[type="text"],select,#add-modal{
-    margin: 10px 0px;
+input[type="text"], select, #add-modal {
+	margin: 10px 0px;
 }
 
-body{
-    background-color: #f7f7f7;
+body {
+	background-color: #f7f7f7;
 }
 
-.table-hover > tbody > tr:hover{
-    background-color: #c5ffb4;
+.table-hover>tbody>tr:hover {
+	background-color: #c5ffb4;
 }
 
 /*********** Add *************/
-.add .form-group > label{
-    margin-top: 10px;
+.add .form-group>label {
+	margin-top: 10px;
 }
 
-.edit-student{
-    margin-right: 10px;
+.edit-student {
+	margin-right: 10px;
 }
 
-.modal-header{
-    background-color: #3498db;
+.modal-header {
+	background-color: #3498db;
 }
 
-.modal-header h4{
-    color: white;
+.modal-header h4 {
+	color: white;
 }
 
-#alert-id, #alert-name{
-    display: none;
-    color: red;
+#alert-id, #alert-name {
+	display: none;
+	color: red;
 }
-
-
-

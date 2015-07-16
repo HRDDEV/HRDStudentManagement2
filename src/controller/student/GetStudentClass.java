@@ -11,7 +11,7 @@ import controller.Action;
 import controller.ActionForward;
 import model.dao.StudentDAO;
 
-public class GetClassName implements Action {
+public class GetStudentClass implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
