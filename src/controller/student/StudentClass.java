@@ -13,7 +13,6 @@ import model.dao.StudentDAO;
 
 public class StudentClass implements Action {
 
-	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<String> student_class = new StudentDAO().classList();
 		response.setContentType("application/json");
