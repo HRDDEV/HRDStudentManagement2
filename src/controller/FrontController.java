@@ -18,10 +18,10 @@ import controller.student.StudentValidation;
 
 
 @WebServlet("*.etv")
-public class Front_Controller extends HttpServlet {
+public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Front_Controller() {
+	public FrontController() {
 		super();
 	}
 

@@ -268,7 +268,7 @@ $(document)
 					}
 
 					txtId.blur(function() {
-						var id = "131N" + $(this).val();
+						var id = $(this).val();
 						validateDuplicateId(id);
 					});
 

@@ -30,10 +30,10 @@
 	<!--                 </select> -->
 	<!--             </div> -->
 
-<!-- 	<div class="col-md-2"> -->
-<!-- 		<button class="btn btn-success pull-right" data-toggle="modal" -->
-<!-- 			data-target="#bootstrapModal" id="add-modal">Add</button> -->
-<!-- 	</div> -->
+	<!-- 	<div class="col-md-2"> -->
+	<!-- 		<button class="btn btn-success pull-right" data-toggle="modal" -->
+	<!-- 			data-target="#bootstrapModal" id="add-modal">Add</button> -->
+	<!-- 	</div> -->
 </div>
 
 <div class="row">

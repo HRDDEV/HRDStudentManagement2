@@ -135,7 +135,7 @@ public class StudentDAO {
 		ps.setString(1, "%" + stuName + "%");
 		ps.setString(2, "%" + className + "%");
 		ResultSet rs = ps.executeQuery();
-		ArrayList<Student> article = new ArrayList<Student>();
+		ArrayList<Student> students = new ArrayList<Student>();
 		try {
 			while (rs.next()) {
 				gender = (rs.getInt("stu_gender") == 1) ? "Male" : "Female";
@@ -145,9 +145,9 @@ public class StudentDAO {
 				student.setGender(gender);
 				student.setUniversity(rs.getString("stu_university"));
 				student.setClassName(rs.getString("stu_class"));
-				article.add(student);
+				students.add(student);
 			}
-			return article;
+			return students;
 		} finally {
 			if (rs != null)
 				try {
