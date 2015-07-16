@@ -12,17 +12,28 @@
 <link rel="stylesheet" href="css/sweet-alert.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/jquery-1.11.3.min.js"></script>
-<link rel="stylesheet" href="css/navbar_style.css" />
+<script src="js/bootstrap.min.js"></script>
+<script src="js/myscript.js"></script>
+
+<style>
+th {
+	background-color: #E74C3C;
+	color: #FFFFFF;
+}
+</style>
+
 </head>
 <body>
 
-	<nav class="navbar navbar-default" role="navigation"> <!-- Brand and toggle get grouped for better mobile display -->
+	<nav class="navbar navbar-default" role="navigation"
+		style="background: #E74C3C;"> <!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse"
 			data-target="#bs-example-navbar-collapse-1">
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="#">HRD Student Management System</a>
+		<a class="navbar-brand" href="#" style="color: #FFFFFF;">HRD
+			Student Management System</a>
 	</div>
 	</nav>
