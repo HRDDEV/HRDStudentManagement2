@@ -15,12 +15,12 @@ public class StudentClass implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ArrayList<String> className = new StudentDAO().classList();
+		ArrayList<String> student_class = new StudentDAO().classList();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		String classList = new Gson().toJson(className);
-		response.getWriter().write(classList);
-		System.out.println(classList);
+		String class_list = new Gson().toJson(student_class);
+		response.getWriter().write(class_list);
+		System.out.println(class_list);
 		return null;
 	}
 

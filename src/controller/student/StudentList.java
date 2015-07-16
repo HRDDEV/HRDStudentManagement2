@@ -14,10 +14,8 @@ import model.dto.Student;
 
 public class StudentList implements Action {
 
-	
-	public ActionForward execute(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		String stuName = request.getParameter("stuName");
 		String className = request.getParameter("className");
 		String status = request.getParameter("status");
@@ -26,15 +24,12 @@ public class StudentList implements Action {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		String student = new Gson().toJson(students);
-		
+
 		response.getWriter().write(student);
-	
+
 		System.out.println(student);
-		
+
 		return null;
-	}
-	public static void main(String[] args) {
-		
 	}
 
 }

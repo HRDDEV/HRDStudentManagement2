@@ -11,15 +11,14 @@ import model.dto.Student;
 public class StudentUpdate implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String gender = request.getParameter("gender");
 		String university = request.getParameter("university");
 		String className = request.getParameter("className");
-		
+
 		Student stu = new Student();
 		stu.setId(id);
 		stu.setName(name);
@@ -28,10 +27,10 @@ public class StudentUpdate implements Action {
 		stu.setClassName(className);
 
 		response.setContentType("text/plain");
-		if(new StudentDAO().update(stu)){
+		if (new StudentDAO().update(stu)) {
 			System.out.println("Successful Update");
 			response.getWriter().write("success");
-		}else{
+		} else {
 			System.err.println("Fail to Update");
 			response.getWriter().write("fail");
 		}
