@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.student.AddStudent;
 import controller.student.DeleteStudent;
-import controller.student.GetStudentClass;
+import controller.student.StudentClass;
 import controller.student.ListStudent;
 import controller.student.UpdateStudent;
 import controller.student.Validation;
@@ -54,7 +54,7 @@ public class Front_Controller extends HttpServlet {
 				action = new UpdateStudent();
 				break;
 			case "/classlist.etv":
-				action = new GetStudentClass();
+				action = new StudentClass();
 				break;
 			case "/validation.etv":
 				action = new Validation();

@@ -123,8 +123,7 @@ $(document)
 						} else {
 							str += '<tr>'
 									+ '<td class="text-center" colspan="6">'
-									+ 'NO RECORD'
-									+ '</td>' + '</tr>';
+									+ 'NO RECORD' + '</td>' + '</tr>';
 						}
 						str += '</table>';
 						return str;

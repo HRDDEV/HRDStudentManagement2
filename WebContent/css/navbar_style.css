@@ -1,9 +1,7 @@
 /* Red */
 $
-bgDefault      : #e74c3c ;
- $bgHighlight    : #c0392b ;
- $colDefault     : #ecf0f1 ;
- $colHover       : #ffbbbc ;
+bgDefault      : #e74c3c ; $bgHighlight    : #c0392b ; $colDefault     : #ecf0f1 
+	; $colHover       : #ffbbbc ;
 	/* Green * /
 $bgDefault      : #2ecc71;
 $bgHighlight    : #27ae60;
@@ -19,8 +17,7 @@ $bgDefault      : #e67e22;
 $bgHighlight    : #d35400;
 $colDefault     : #ecf0f1;
 $colHover       : #ffe6d1; /*/
-	/* --- Style --- */ 
-.navbar-default {
+	/* --- Style --- */ .navbar-default {
 	background-color: $bgDefault;
 	border-color: $bgHighlight;
 	.
@@ -38,11 +35,17 @@ $colHover       : #ffe6d1; /*/
 	focus
 	{
 	
+	
             
+	
 	color
 	:
+	
 	 
+	
 	$
+	
+	
 	colHover;
 }
 
@@ -92,11 +95,17 @@ $colHover       : #ffe6d1; /*/
 	focus
 	{
 	
+	
             
+	
 	background-color
 	:
+	
 	 
+	
 	$
+	
+	
 	bgHighlight;
 }
 
