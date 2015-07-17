@@ -15,6 +15,10 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/myscript.js"></script>
 
+<!-- vichea: include sweet alert -->
+<link rel="stylesheet" href="css/sweetalert.css" />
+<script src="js/sweetalert.min.js"></script>
+
 <style>
 th {
 	background-color: #E74C3C;

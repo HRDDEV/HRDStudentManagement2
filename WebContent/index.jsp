@@ -51,29 +51,30 @@
 						<div class="row">
 							<div class="col-md-12 add">
 								<form class="form-horizontal">
-									
+
 									<div class="form-group" id="validate-id">
 										<label for="txt-id" class="col-sm-2 control-label">Student
 											ID : </label>
 										<div class="col-sm-3">
 											<input type="text" class="form-control" id="txt-id"
-												tabindex=1> <span
-												id="alert-id">* Please input data</span>
+												tabindex=1> <span id="alert-id">* Please
+												input data</span>
 										</div>
 									</div>
-								
+
 									<div class="form-group" id="validate-name">
 										<label for="txt-name" class="col-sm-2 control-label">Student
 											Name :</label>
 										<div class="col-sm-3">
 											<input type="text" class="form-control" id="txt-name"
-												tabindex=2> <span
-												id="alert-name">* Please Input data</span>
+												tabindex=2> <span id="alert-name">* Please
+												Input data</span>
 										</div>
 									</div>
-								
+
 									<div class="form-group">
-										<label for="cbo-gender" class="col-sm-2 control-label">Gender :</label>
+										<label for="cbo-gender" class="col-sm-2 control-label">Gender
+											:</label>
 										<div class="col-sm-3">
 											<select name="cbo-gender" id="cbo-gender"
 												class="form-control" tabindex=3>
@@ -82,9 +83,10 @@
 											</select>
 										</div>
 									</div>
-								
+
 									<div class="form-group">
-										<label for="cbo-university" class="col-sm-2 control-label">University :</label>
+										<label for="cbo-university" class="col-sm-2 control-label">University
+											:</label>
 										<div class="col-sm-3">
 											<select name="cbo-university" id="cbo-university"
 												class="form-control" tabindex=4>
@@ -98,9 +100,10 @@
 											</select>
 										</div>
 									</div>
-		
+
 									<div class="form-group">
-										<label for="cbo-class" class="col-sm-2 control-label">Class :</label>
+										<label for="cbo-class" class="col-sm-2 control-label">Class
+											:</label>
 										<div class="col-sm-3">
 											<select name="cbo-class" id="cbo-class" class="form-control"
 												tabindex=5>
